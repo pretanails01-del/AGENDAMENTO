@@ -14,54 +14,85 @@
     :root { --primary: #C13584; --primary-dark: #a02c6e; --success: #25D366; --card: #ffffff; --text: #1a1a1a; --border: #f0c1d9; }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', sans-serif; background: linear-gradient(135deg, #1a0f14 0%, #2d1b24 50%, #fff0f5 100%); min-height: 100vh; padding: 20px; color: var(--text); -webkit-font-smoothing: antialiased; }
-   .container { max-width: 720px; margin: 20px auto; background: var(--card); border-radius: 24px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.3); overflow: hidden; animation: slideUp 0.6s ease; }
+  .container { max-width: 720px; margin: 20px auto; background: var(--card); border-radius: 24px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.3); overflow: hidden; animation: slideUp 0.6s ease; }
     @keyframes slideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-   .header { background: linear-gradient(135deg, #000 0%, var(--primary) 100%); color: white; text-align: center; padding: 40px 20px 35px; position: relative; }
-   .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, #fff, transparent); opacity: 0.3; }
-   .header img { max-width: 220px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
-   .header h1 { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; letter-spacing: 1px; }
-   .header p { margin-top: 8px; opacity: 0.9; font-size: 14px; font-weight: 500; }
-   .form-body { padding: 40px 35px; }
-   .form-group { margin-bottom: 24px; }
+  .header { background: linear-gradient(135deg, #000 0%, var(--primary) 100%); color: white; text-align: center; padding: 40px 20px 35px; position: relative; }
+  .header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, #fff, transparent); opacity: 0.3; }
+  .header img { max-width: 220px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+  .header h1 { font-family: 'Playfair Display', serif; font-size: 38px; font-weight: 700; letter-spacing: 1px; }
+  .header p { margin-top: 8px; opacity: 0.9; font-size: 14px; font-weight: 500; }
+  .form-body { padding: 40px 35px; }
+  .form-group { margin-bottom: 24px; }
     label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); font-size: 14px; letter-spacing: 0.3px; }
     label.required::after { content: ' *'; color: #e74c3c; }
     input, textarea, select { width: 100%; padding: 14px 16px; border: 2px solid var(--border); border-radius: 12px; font-size: 15px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background: #fff; }
     input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.1); }
     select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C13584' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
     textarea { resize: vertical; min-height: 90px; }
-   .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
-   .checkbox-item { display: flex; align-items: center; background: #fff9fb; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--border); cursor: pointer; transition: all 0.3s ease; }
-   .checkbox-item:hover { border-color: var(--primary); background: #fff5f9; }
-   .checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
-   .foto-box { border: 3px dashed var(--primary); border-radius: 16px; padding: 35px 20px; text-align: center; background: #fff9fb; cursor: pointer; transition: all 0.3s ease; }
-   .foto-box:hover { background: #fff5f9; border-color: var(--primary-dark); }
-   .foto-box p { color: var(--primary); font-weight: 600; margin-top: 8px; }
+  .checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+  .checkbox-item { display: flex; align-items: center; background: #fff9fb; padding: 12px 14px; border-radius: 12px; border: 2px solid var(--border); cursor: pointer; transition: all 0.3s ease; }
+  .checkbox-item:hover { border-color: var(--primary); background: #fff5f9; }
+  .checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
+  .foto-box { border: 3px dashed var(--primary); border-radius: 16px; padding: 35px 20px; text-align: center; background: #fff9fb; cursor: pointer; transition: all 0.3s ease; }
+  .foto-box:hover { background: #fff5f9; border-color: var(--primary-dark); }
+  .foto-box p { color: var(--primary); font-weight: 600; margin-top: 8px; }
+  .foto-obs { font-size: 13px; color: #888; margin-top: 8px; text-align: center; }
     #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
     canvas { border: 2px solid var(--primary); border-radius: 12px; background: #fff; width: 100%; touch-action: none; cursor: crosshair; }
-   .btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
-   .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; margin-top: 30px; box-shadow: 0 8px 20px rgba(193, 53, 132, 0.3); }
-   .btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(193, 53, 132, 0.4); }
-   .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
-   .btn-secondary { background: #e0e0e0; color: #555; width: auto; padding: 10px 20px; font-size: 14px; margin-top: 10px; }
-   .btn-secondary:hover { background: #d0d0d0; }
-   .loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
+  .btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
+  .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; margin-top: 30px; box-shadow: 0 8px 20px rgba(193, 53, 132, 0.3); }
+  .btn-primary:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(193, 53, 132, 0.4); }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+  .btn-secondary { background: #e0e0e0; color: #555; width: auto; padding: 10px 20px; font-size: 14px; margin-top: 10px; }
+  .btn-secondary:hover { background: #d0d0d0; }
+  .loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
     @keyframes spin { to { transform: rotate(360deg); } }
-   .sucesso-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeIn 0.3s ease; }
+  .sucesso-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeIn 0.3s ease; }
     @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-   .sucesso-card { background: white; padding: 50px 40px; border-radius: 24px; text-align: center; max-width: 400px; animation: scaleUp 0.4s ease; }
+  .sucesso-card { background: white; padding: 50px 40px; border-radius: 24px; text-align: center; max-width: 400px; animation: scaleUp 0.4s ease; }
     @keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-   .sucesso-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #25D366, #1fa855); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; animation: bounce 0.6s ease; }
+  .sucesso-icon { width: 80px; height: 80px; background: linear-gradient(135deg, #25D366, #1fa855); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; animation: bounce 0.6s ease; }
     @keyframes bounce { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-   .sucesso-icon i { color: white; font-size: 40px; }
-   .sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); margin-bottom: 10px; }
-   .sucesso-texto { color: #666; font-size: 15px; margin-bottom: 20px; }
-   .erro-msg { background: #FFEBEE; border-left: 4px solid #F44336; color: #C62828; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
-   .hidden { display: none!important; }
-    @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 32px; }.checkbox-group { grid-template-columns: 1fr; }.sucesso-card { margin: 20px; padding: 40px 30px; } }
+  .sucesso-icon i { color: white; font-size: 40px; }
+  .sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 28px; color: var(--primary); margin-bottom: 10px; }
+  .sucesso-texto { color: #666; font-size: 15px; margin-bottom: 20px; }
+  .erro-msg { background: #FFEBEE; border-left: 4px solid #F44336; color: #C62828; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
+  .hidden { display: none!important; }
+
+    /* TELA DE BLOQUEIO - NOVO */
+  .bloqueio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; }
+  .bloqueio-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border: 2px solid var(--primary); border-radius: 24px; padding: 50px 40px; text-align: center; max-width: 500px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.5); }
+  .bloqueio-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; }
+  .bloqueio-icon i { color: white; font-size: 45px; }
+  .bloqueio-titulo { font-family: 'Playfair Display', serif; font-size: 32px; color: white; margin-bottom: 15px; font-weight: 700; }
+  .bloqueio-texto { color: #ccc; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
+  .bloqueio-texto strong { color: var(--primary); }
+  .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
+  .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
+  .btn-whatsapp i { font-size: 22px; }
+
+    @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 32px; }.checkbox-group { grid-template-columns: 1fr; }.sucesso-card { margin: 20px; padding: 40px 30px; }.bloqueio-card { padding: 40px 25px; }.bloqueio-titulo { font-size: 26px; } }
   </style>
 </head>
 <body>
-<div class="container">
+<!-- TELA DE BLOQUEIO - NOVO -->
+<div id="bloqueioOverlay" class="bloqueio-overlay hidden">
+  <div class="bloqueio-card">
+    <div class="bloqueio-icon">
+      <i class="fas fa-lock"></i>
+    </div>
+    <h2 class="bloqueio-titulo">Manutenção Programada</h2>
+    <p class="bloqueio-texto">
+      O sistema de <strong>Anamnese Digital Preta NailS</strong> está temporariamente indisponível para manutenção e atualização de segurança.<br><br>
+      Para agendamentos ou informações, entre em contato diretamente pelo WhatsApp oficial:
+    </p>
+    <a href="https://wa.me/5511991233172?text=Ol%C3%A1%2C%20vi%20que%20o%20site%20est%C3%A1%20em%20manuten%C3%A7%C3%A3o.%20Gostaria%20de%20agendar%20um%20hor%C3%A1rio." target="_blank" class="btn-whatsapp">
+      <i class="fab fa-whatsapp"></i> FALAR NO WHATSAPP
+    </a>
+  </div>
+</div>
+
+<div class="container" id="mainContainer">
   <div class="header">
     <img src="https://dl.dropboxusercontent.com/scl/fi/r0nz5dgz3ijxtvoc0ozpw/1781981208006_image_1781981207662.jpg?rlkey=ozppeww4pwyc1b0x4ma8gakm7&dl=1" alt="Preta NailS">
     <h1>ANAMNESE DIGITAL</h1>
@@ -142,13 +173,13 @@
           <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
           <p>Clique para enviar a foto</p>
         </div>
+        <p class="foto-obs">Envio opcional</p>
         <input type="file" id="foto" accept="image/*" class="hidden" onchange="previewFoto(this)">
         <div id="previewContainer" class="hidden" style="text-align:center; margin-top:15px;">
           <img id="previewImg">
           <br><br>
           <button type="button" class="btn btn-secondary" onclick="removerFoto()">Remover Foto</button>
         </div>
-      </div>
       <div class="form-group">
         <label class="required">✍️ Assinatura Digital da Cliente</label>
         <canvas id="signatureCanvas" width="700" height="200"></canvas>
@@ -174,8 +205,26 @@
 </div>
 
 <script>
+// ===== CONFIGURAÇÃO DE BLOQUEIO AUTOMÁTICO - EDITA AQUI =====
+const DIAS_BLOQUEIO = 1; // Troca pra 60 se quiser bloquear a cada 60 dias
+const DATA_INICIO = new Date('2026-06-23'); // Coloca a data de hoje pra liberar o site
+const WHATSAPP_BLOQUEIO = "5511991233172"; // Teu número que vai no botão
+// ============================================================
+
 const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxPbuT9UgUn0ix3CsJrLJw3fDi0H_ErPWzOEucdTibRHuAJL7qSuJAKJSZ2ulAT7_w/exec";
 const WHATSAPP_NUMBER = "5511982311608";
+
+// VERIFICA SE DEVE BLOQUEAR - NOVO
+(function verificarBloqueio() {
+  const hoje = new Date();
+  const diasPassados = Math.floor((hoje - DATA_INICIO) / (1000 * 60 * 60 * 24));
+
+  if (diasPassados >= DIAS_BLOQUEIO) {
+    document.getElementById('bloqueioOverlay').classList.remove('hidden');
+    document.getElementById('mainContainer').style.display = 'none';
+    document.body.style.overflow = 'hidden';
+  }
+})();
 
 let fotoBase64 = null;
 let isDrawing = false;
@@ -284,6 +333,7 @@ function showErro(msg) {
   const container = document.getElementById('erroContainer');
   container.innerHTML = `<div class="erro-msg"><i class="fas fa-exclamation-triangle"></i> ${msg}</div>`;
   container.classList.remove('hidden');
+  window.scrollTo({ top: container.offsetTop - 20, behavior: 'smooth' });
 }
 
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
@@ -291,7 +341,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   document.getElementById('erroContainer').classList.add('hidden');
 
   if (!hasSignature) {
-    showErro('Por favor, faça sua assinatura digital para continuar.');
+    showErro('A assinatura digital é obrigatória. Por favor, assine no campo acima.');
     return;
   }
 

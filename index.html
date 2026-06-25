@@ -1,11 +1,12 @@
 
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Formulário de Avaliação Inicial • Preta NailS</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https://dl.dropboxusercontent.com; connect-src 'self' https://script.google.com;">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -58,6 +59,8 @@
   .sucesso-texto { color: #666; font-size: 15px; margin-bottom: 20px; }
   .erro-msg { background: #FFEBEE; border-left: 4px solid #F44336; color: #C62828; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
   .hidden { display: none!important; }
+
+    /* TELA DE BLOQUEIO */
   .bloqueio-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 99999; display: flex; align-items: center; justify-content: center; padding: 20px; }
   .bloqueio-card { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); border: 2px solid var(--primary); border-radius: 24px; padding: 50px 40px; text-align: center; max-width: 500px; box-shadow: 0 30px 80px rgba(193, 53, 132, 0.5); }
   .bloqueio-icon { width: 90px; height: 90px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; }
@@ -68,10 +71,12 @@
   .btn-whatsapp { background: linear-gradient(135deg, #25D366, #1fa855); color: white; padding: 16px 35px; border-radius: 12px; font-size: 16px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; transition: all 0.3s ease; box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4); }
   .btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(37, 211, 102, 0.6); }
   .btn-whatsapp i { font-size: 22px; }
+
     @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 28px; }.checkbox-group { grid-template-columns: 1fr; }.sucesso-card { margin: 20px; padding: 40px 30px; }.bloqueio-card { padding: 40px 25px; }.bloqueio-titulo { font-size: 26px; } }
   </style>
 </head>
 <body>
+<!-- TELA DE BLOQUEIO -->
 <div id="bloqueioOverlay" class="bloqueio-overlay hidden">
   <div class="bloqueio-card">
     <div class="bloqueio-icon"> 
@@ -99,7 +104,7 @@
     <form id="anamneseForm">
       <div class="form-group">
         <label class="required">Nome Completo</label>
-        <input type="text" id="nome" required placeholder="Digite seu nome completo" autocomplete="name">
+        <input type="text" id="nome" required placeholder="Digite seu nome completo">
       </div>
       <div class="form-group">
         <label class="required">Idade</label>
@@ -107,11 +112,7 @@
       </div>
       <div class="form-group">
         <label class="required">WhatsApp</label>
-        <input type="tel" id="whatsapp" required placeholder="(11) 99999-9999" autocomplete="tel">
-      </div>
-      <div class="form-group">
-        <label class="required">Email para receber seu termo</label>
-        <input type="email" id="email" required placeholder="cliente@gmail.com" autocomplete="email">
+        <input type="tel" id="whatsapp" required placeholder="(11) 99999-9999">
       </div>
       <div class="form-group">
         <label class="required">Procedimentos Desejados</label>
@@ -124,7 +125,6 @@
           <label class="checkbox-item"><input type="checkbox" value="Reparação de Unhas"> Reparação de Unhas</label>
           <label class="checkbox-item"><input type="checkbox" id="outroCheck" value="Outro"> Outro</label>
         </div>
-      </div>
       <div id="outroContainer" class="form-group hidden">
         <label>Especifique o procedimento desejado</label>
         <input type="text" id="outroTexto" placeholder="Descreva aqui...">
@@ -207,15 +207,16 @@
 </div>
 
 <script>
-// ===== CONFIGURAÇÃO =====
-const CRYPTO_KEY = 'PretaNails2026UltraSecretKey!@#Force256GCM';
-const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxPbuT9UgUn0ix3CsJrLJw3fDi0H_ErPWzOEucdTibRHuAJL7qSuJAKJSZ2ulAT7_w/exec";
+// ===== CONFIGURAÇÃO DE BLOQUEIO AUTOMÁTICO =====
+// Aceita: "30s", "1min", "5min", "1h", "6h", "1d", "10d", "50d", "0" = infinito
+const DURACAO_BLOQUEIO = "0"; // ← SÓ MUDA ESSA LINHA
+const WHATSAPP_BLOQUEIO = "5511991233172"; // Teu número que vai no botão
+// ============================================================
+
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbwuuqYuvDyl5igfaY9LkC6dDus-KP8bQuWDMGLBXnY4bU41QAN3gNng5S5rj6D0vQs/exec";
 const WHATSAPP_NUMBER = "5511982311608";
 
-// Bloqueio automático
-const DURACAO_BLOQUEIO = "0";
-const WHATSAPP_BLOQUEIO = "5511991233172";
-
+// CONVERTE "1d", "1h", "1min", "30s" PARA MINUTOS
 function converterParaMinutos(tempo) {
   if (typeof tempo === 'number') return tempo;
   const valor = parseFloat(tempo);
@@ -223,65 +224,41 @@ function converterParaMinutos(tempo) {
   if (isNaN(valor) || valor <= 0) return 0;
   switch (unidade) {
     case 's': return valor / 60;
-    case 'min': case 'm': return valor;
+    case 'min':
+    case 'm': return valor;
     case 'h': return valor * 60;
     case 'd': return valor * 60 * 24;
     default: return valor;
   }
 }
 
+// VERIFICA SE DEVE BLOQUEAR
 (function verificarBloqueio() {
   const duracaoMinutos = converterParaMinutos(DURACAO_BLOQUEIO);
-  if (duracaoMinutos <= 0) return;
+  if (duracaoMinutos <= 0) return; // 0 = infinito, nunca bloqueia
+
   const CHAVE_STORAGE = 'sistemaBloqueio_inicio';
   let dataInicio = localStorage.getItem(CHAVE_STORAGE);
+  
   if (!dataInicio) {
     dataInicio = new Date().toISOString();
     localStorage.setItem(CHAVE_STORAGE, dataInicio);
   }
+
   const inicio = new Date(dataInicio).getTime();
   const agora = new Date().getTime();
   const minutosPassados = (agora - inicio) / 60000;
+
   if (minutosPassados >= duracaoMinutos) {
     document.getElementById('bloqueioOverlay').classList.remove('hidden');
     document.getElementById('mainContainer').style.display = 'none';
     document.body.style.overflow = 'hidden';
+    
+    // Atualiza link do WhatsApp no botão de bloqueio
     const btnWhats = document.querySelector('#bloqueioOverlay a');
     if (btnWhats) btnWhats.href = `https://wa.me/${WHATSAPP_BLOQUEIO}`;
   }
 })();
-
-// Anti-devtools básico
-document.addEventListener('contextmenu', e => e.preventDefault());
-document.addEventListener('keydown', e => {
-  if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) e.preventDefault();
-});
-
-// ===== CRIPTOGRAFIA AES-256-GCM + PBKDF2 250K =====
-async function deriveKey(password, salt) {
-  const enc = new TextEncoder();
-  const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
-  return crypto.subtle.deriveKey(
-    { name: 'PBKDF2', salt: salt, iterations: 250000, hash: 'SHA-256' },
-    keyMaterial,
-    { name: 'AES-GCM', length: 256 },
-    false,
-    ['encrypt']
-  );
-}
-
-async function encryptData(data) {
-  const enc = new TextEncoder();
-  const salt = crypto.getRandomValues(new Uint8Array(16));
-  const iv = crypto.getRandomValues(new Uint8Array(12));
-  const key = await deriveKey(CRYPTO_KEY, salt);
-  const encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, key, enc.encode(JSON.stringify(data)));
-  const combined = new Uint8Array(salt.length + iv.length + encrypted.byteLength);
-  combined.set(salt, 0);
-  combined.set(iv, salt.length);
-  combined.set(new Uint8Array(encrypted), salt.length + iv.length);
-  return btoa(String.fromCharCode(...combined));
-}
 
 let fotoBase64 = null;
 let isDrawing = false;
@@ -357,7 +334,9 @@ function draw(e) {
   e.preventDefault();
 }
 
-function endDraw() { isDrawing = false; }
+function endDraw() {
+  isDrawing = false;
+}
 
 canvas.addEventListener('mousedown', startDraw);
 canvas.addEventListener('mousemove', draw);
@@ -418,13 +397,12 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
-  btnText.innerHTML = '<span class="loader"></span>Criptografando...';
+  btnText.innerHTML = '<span class="loader"></span>Enviando...';
 
   const dados = {
     nome: document.getElementById('nome').value.trim(),
     idade: document.getElementById('idade').value,
     whatsapp: document.getElementById('whatsapp').value.trim(),
-    email: document.getElementById('email').value.trim(),
     procedimento: procs.join(", "),
     outroTexto: document.getElementById('outroTexto').value,
     fotoReferencia: fotoBase64,
@@ -436,38 +414,37 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     gravida: document.getElementById('gravida').value,
     alongamento: document.getElementById('alongamento').value,
     alongamento_texto: document.getElementById('alongamento_texto').value,
-    observacoes: document.getElementById('observacoes').value,
-    timestamp: Date.now()
+    observacoes: document.getElementById('observacoes').value
   };
 
   try {
-    btnText.innerHTML = '<span class="loader"></span>Enviando...';
-    const payloadCriptografado = await encryptData(dados);
-    
     const response = await fetch(WEB_APP_URL, {
       method: "POST",
       mode: "cors",
-      headers: { 'Content-Type': 'text/plain' },
-      body: JSON.stringify({ payload: payloadCriptografado })
+      body: JSON.stringify(dados)
     });
 
     const data = await response.json();
 
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
+
       const texto = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*%0A%0A*👤 Cliente:* ${dados.nome}%0A*📱 WhatsApp:* ${dados.whatsapp}%0A*💅 Procedimento:* ${dados.procedimento}%0A*📋 OS:* ${data.os}%0A%0A*📄 PDF:* ${data.pdf}`;
       const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
+
       document.getElementById('btnWhatsContainer').innerHTML = `
         <a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;">
           <i class="fab fa-whatsapp"></i> ABRIR WHATSAPP
         </a>
       `;
+
       document.getElementById('sucessoOverlay').classList.remove('hidden');
+
     } else {
       throw new Error(data.msg || 'Erro desconhecido');
     }
   } catch (err) {
-    showErro('Erro ao enviar formulário. Tente novamente.');
+    showErro('Erro ao enviar formulário. Verifique se implantou como "Qualquer pessoa" no Apps Script.');
     console.error(err);
     btn.disabled = false;
     btnText.textContent = 'ENVIAR FORMULÁRIO';

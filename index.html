@@ -124,6 +124,7 @@
           <label class="checkbox-item"><input type="checkbox" value="Reparação de Unhas"> Reparação de Unhas</label>
           <label class="checkbox-item"><input type="checkbox" id="outroCheck" value="Outro"> Outro</label>
         </div>
+      </div>
       <div id="outroContainer" class="form-group hidden">
         <label>Especifique o procedimento desejado</label>
         <input type="text" id="outroTexto" placeholder="Descreva aqui...">
@@ -206,10 +207,9 @@
 </div>
 
 <script>
-// ===== CRIPTOGRAFIA AES-256-GCM =====
-const CRYPTO_KEY = 'PretaNails2026UltraSecretKey!@#'; // Troca isso e usa a mesma no Apps Script
-const ENDPOINT_PARTS = ['https://','script.google.com','/macros/s/','AKfycbxPbuT9UgUn0ix3CsJrLJw3fDi0H_ErPWzOEucdTibRHuAJL7qSuJAKJSZ2ulAT7_w','/exec'];
-const WEB_APP_URL = ENDPOINT_PARTS.join('');
+// ===== CONFIGURAÇÃO =====
+const CRYPTO_KEY = 'PretaNails2026UltraSecretKey!@#Force256GCM';
+const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxPbuT9UgUn0ix3CsJrLJw3fDi0H_ErPWzOEucdTibRHuAJL7qSuJAKJSZ2ulAT7_w/exec";
 const WHATSAPP_NUMBER = "5511982311608";
 
 // Bloqueio automático
@@ -257,11 +257,12 @@ document.addEventListener('keydown', e => {
   if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) e.preventDefault();
 });
 
+// ===== CRIPTOGRAFIA AES-256-GCM + PBKDF2 250K =====
 async function deriveKey(password, salt) {
   const enc = new TextEncoder();
   const keyMaterial = await crypto.subtle.importKey('raw', enc.encode(password), 'PBKDF2', false, ['deriveKey']);
   return crypto.subtle.deriveKey(
-    { name: 'PBKDF2', salt: salt, iterations: 100000, hash: 'SHA-256' },
+    { name: 'PBKDF2', salt: salt, iterations: 250000, hash: 'SHA-256' },
     keyMaterial,
     { name: 'AES-GCM', length: 256 },
     false,

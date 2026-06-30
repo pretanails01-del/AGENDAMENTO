@@ -426,8 +426,8 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     if (data.status === 'ok') {
       document.getElementById('sucessoTexto').innerHTML = `Formulário ${data.os} enviado com sucesso!`;
 
-      const texto = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*%0A%0A*👤 Cliente:* ${dados.nome}%0A*📱 WhatsApp:* ${dados.whatsapp}%0A*💅 Procedimento:* ${dados.procedimento}%0A*📋 OS:* ${data.os}%0A%0A*📄 PDF:* ${data.pdf}`;
-      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${texto}`;
+      const mensagem = `*🔥 NOVO FORMULÁRIO - PRETA NAILS*\n\n*👤 Cliente:* ${dados.nome}\n*📱 WhatsApp:* ${dados.whatsapp}\n*💅 Procedimento:* ${dados.procedimento}\n*📋 OS:* ${data.os}\n\n*📄 PDF:* ${data.pdf}`;
+      const linkWhats = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensagem)}`;
 
       document.getElementById('btnWhatsContainer').innerHTML = `
         <a href="${linkWhats}" target="_blank" class="btn btn-primary" style="display:inline-block; margin-top:20px; text-decoration:none;">
@@ -461,4 +461,3 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
 </script>
 </body>
 </html>
-

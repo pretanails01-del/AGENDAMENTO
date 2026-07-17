@@ -622,7 +622,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
       document.getElementById('sucessoOverlay').classList.remove('hidden');
     } else { throw new Error(data.msg || 'Erro desconhecido'); }
   } catch (err) {
-    showErro('Erro ao enviar formulário. Verifique se implantou como "Qualquer pessoa" no Apps Script.');
+    showErro('Erro ao enviar, comunicar a pretanails sobre o problema.');
     console.error(err);
     btn.disabled = false;
     btnText.textContent = 'ENVIAR FORMULÁRIO';

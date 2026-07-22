@@ -23,6 +23,37 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
 
+    /* BOTÃO DÚVIDAS TOPO DIREITO */
+    .btn-duvidas-topo {
+      position: fixed;
+      top: 20px;
+      right: 25px;
+      z-index: 9998;
+      background: rgba(255,255,255,0.06); /* transparente */
+      border: 1px solid rgba(193,53,132,0.4);
+      backdrop-filter: blur(10px);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-duvidas-topo:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .btn-duvidas-topo:active {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); /* ROSA AO CLICAR */
+      border-color: var(--primary);
+      transform: scale(0.96);
+    }
+
     /* Todo o seu CSS original (mantido 100% igual) */
     .hero { min-height: 100vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=1887&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 20px; position: relative; }
     .wrap { max-width: 600px; animation: fadeIn 1s ease; }
@@ -152,6 +183,7 @@
     .whatsapp-text { font-size: 10px; font-weight: 700; color: #fff; background: rgba(0,0,0,0.7); padding: 5px 10px; border-radius: 20px; backdrop-filter: blur(10px); letter-spacing: 0.5px; text-align: center; }
 
     @media (max-width: 768px) {
+      .btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; }
       .hero { min-height: 85vh; padding: 20px 16px 40px 16px; }
       .wrap { max-width: 100%; }
       .slogan { letter-spacing: 2px; font-size: 11px; }
@@ -176,6 +208,11 @@
   </style>
 </head>
 <body>
+
+  <!-- BOTÃO DÚVIDAS FREQUENTES TOPO DIREITO - CORRIGIDO 1 CLIQUE -->
+  <a href="duvidas.html" class="btn-duvidas-topo" onclick="event.stopPropagation()">
+    <i class="fas fa-circle-question"></i> Dúvidas Frequentes
+  </a>
 
   <!-- Todo o conteúdo mantido igual -->
   <section class="hero">

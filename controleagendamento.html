@@ -1,1 +1,272 @@
 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO OCULTO - 51 PALAVRAS CHAVE -->
+<title>Painel ADM - Preta Nails | Agendamento Unhas Gel Fibra Sabrina Lemos</title>
+<meta name="description" content="Painel Administrativo Preta Nails. Gerencie agendamentos de alongamento de unhas em gel, fibra, manutenção, nail art. Controle biossegurança e clientes.">
+<meta name="keywords" content="painel adm preta nails, agendamento de unhas, planilha agendamento, alongamento de unhas, unhas em gel, unhas de fibra, manutenção de unhas, nail designer, manicure, nail art, unhas decoradas, biossegurança, controle de clientes, sabrina lemos, preta nails adm, sistema de agendamento, gestão de salão, beleza, estética de unhas, cutilagem, esmaltação em gel, fibra de vidro, spa das mãos, atendimento vip">
+
+<meta name="robots" content="noindex, nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+:root { 
+  --primary: #C13584; 
+  --primary-dark: #a02c6e; 
+  --bg: #0a0a0a; 
+  --card: rgba(255,255,255,0.04); 
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+  font-family: 'Inter', sans-serif; 
+  background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%);
+  color: #fff; 
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-x:hidden;
+  position:relative;
+  padding:20px;
+}
+
+/* FUNDO UNHAS FLUTUANDO SUTIL */
+.nails-bg {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  z-index:-1;
+  opacity:0.06;
+  pointer-events:none;
+}
+.nail {
+  position:absolute;
+  width:70px; height:140px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border-radius: 35px 35px 50% 50%;
+  box-shadow: 0 0 30px rgba(193,53,132,0.2);
+  animation: float 20s infinite ease-in-out;
+}
+@keyframes float {
+ 0%,100% { transform: translateY(0) rotate(0deg); }
+ 50% { transform: translateY(-50px) rotate(8deg); }
+}
+
+/* HEADER IGUAL AO INDEX */
+.header { text-align:center; padding: 0 0 25px 0; }
+.logo { 
+  width:120px; 
+  height:120px; 
+  border-radius:50%; 
+  border:3px solid var(--primary); 
+  margin-bottom:16px; 
+  object-fit:cover;
+  box-shadow: 0 0 30px rgba(193,53,132,0.4);
+}
+h1 { 
+  font-family: 'Playfair Display', serif; 
+  font-size: clamp(28px, 5vw, 38px); 
+  font-weight: 900;
+  color: #fff;
+  letter-spacing:1px;
+}
+h1 span { color:var(--primary); }
+.slogan { font-size: 12px; letter-spacing: 3px; opacity: 0.7; font-weight: 600; margin-top: 5px; }
+h2 { 
+  text-align:center; 
+  color:var(--primary); 
+  margin:20px 0 15px 0; 
+  font-family: 'Playfair Display', serif; 
+  font-size: clamp(22px, 4vw, 26px);
+}
+
+/* BOTÕES IGUAL AO INDEX */
+.btn-adm { 
+  display:flex; 
+  align-items:center; 
+  justify-content:center; 
+  gap:12px; 
+  width:100%; 
+  margin:16px 0; 
+  padding: 18px 30px; 
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); 
+  color:#fff; 
+  border-radius:50px; 
+  font-weight:800; 
+  border: none; 
+  cursor:pointer; 
+  text-decoration:none; 
+  font-size:16px; 
+  transition: all 0.3s; 
+  box-shadow: 0 10px 30px rgba(193,53,132,0.4);
+  position:relative;
+  overflow:hidden;
+}
+.btn-adm::after { 
+  content: ''; 
+  position: absolute; 
+  top: 0; 
+  left: -100%; 
+  width: 50%; 
+  height: 100%; 
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); 
+  animation: glitter 2.5s infinite; 
+}
+@keyframes glitter { 0% { left: -100%; } 100% { left: 200%; } }
+.btn-adm:hover { 
+  transform: translateY(-3px); 
+  box-shadow: 0 15px 40px rgba(193,53,132,0.6);
+}
+.btn-secundario { 
+  background: rgba(255,255,255,0.06); 
+  border: 1px solid rgba(193,53,132,0.3);
+  backdrop-filter: blur(10px);
+}
+
+/* LOGIN BOX VIDRO IGUAL AO FORM */
+.login-box { 
+  width:100%; 
+  max-width:500px; 
+  padding:40px 30px; 
+  background: var(--card); 
+  border: 1px solid rgba(193,53,132,0.25); 
+  border-radius:25px; 
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+  animation: slideUp 0.6s ease;
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.login-box p { text-align:center; color:#ccc; margin-bottom:25px; font-size:14px; font-weight:600; letter-spacing:0.5px; }
+.login-box input { 
+  width:100%; 
+  padding:14px 16px; 
+  margin:18px 0; 
+  background: rgba(0,0,0,0.3); 
+  border:2px solid rgba(255,255,255,0.1); 
+  border-radius:12px; 
+  color:#fff; 
+  font-size:15px; 
+  font-family: 'Inter', sans-serif;
+  outline:none;
+  transition:0.3s;
+}
+.login-box input::placeholder { color: rgba(255,255,255,0.4); }
+.login-box input:focus { 
+  border-color: var(--primary); 
+  box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.15); 
+  background: rgba(0,0,0,0.5); 
+}
+.erro { 
+  background: rgba(244,67,54,0.1); 
+  border-left: 4px solid #F44336; 
+  color: #ff8a80; 
+  padding: 15px; 
+  border-radius: 8px; 
+  margin:15px 0; 
+  font-size: 14px; 
+  font-weight: 600;
+  display:none;
+}
+#tela-painel { display:none; width:100%; max-width:900px; animation: slideUp 0.6s ease; }
+.info-box { 
+  background: var(--card); 
+  border:1px solid rgba(193,53,132,0.25); 
+  border-radius:20px; 
+  padding:30px; 
+  margin:25px 0; 
+  text-align:center;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+}
+.info-box i { font-size:45px; color:var(--primary); margin-bottom:15px; }
+.info-box h3 { font-family: 'Playfair Display', serif; color:var(--primary); margin-bottom:10px; font-size:22px; }
+.info-box p { opacity:0.9; line-height:1.7; }
+
+@media (max-width: 768px) {
+  .login-box { padding:30px 20px; }
+  .btn-adm { padding:16px 24px; font-size:15px; }
+  .logo { width:100px; height:100px; }
+  .info-box { padding:25px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- UNHAS NO FUNDO -->
+<div class="nails-bg" id="nailsBg"></div>
+
+  <div id="tela-login">
+    <div class="login-box">
+      <div class="header">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails Painel Administrativo Sabrina Lemos">
+        <h1>PRETA<span>NAILS</span></h1>
+        <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
+      </div>
+      <h2>🔒 Acesso Restrito</h2>
+      <p>Painel Administrativo Premium - Gestão de Agendamentos</p>
+      <input type="password" id="senha" placeholder="Digite a senha de acesso" onkeypress="if(event.key==='Enter')entrar()">
+      <div class="erro" id="erro">Senha incorreta! Tente novamente.</div>
+      <button onclick="entrar()" class="btn-adm"><i class="fa fa-fingerprint"></i> ENTRAR NO PAINEL</button>
+    </div>
+  </div>
+
+  <div id="tela-painel">
+    <div class="header">
+      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=1" class="logo" alt="Preta Nails Central de Agendamentos">
+      <h1>PRETA<span>NAILS</span></h1>
+      <div class="slogan">BELEZA • CONFIANÇA • PODER</div>
+    </div>
+    <h2>📊 Central de Agendamentos</h2>
+    
+    <div class="info-box">
+      <i class="fa fa-file-excel"></i>
+      <h3>Planilha Oficial</h3>
+      <p>Todos os agendamentos de alongamento de unhas em gel e fibra ficam salvos aqui. Edite, adicione e exclua direto na planilha do Google. Controle total de clientes VIP.</p>
+    </div>
+
+    <a href="https://docs.google.com/spreadsheets/d/1QKKlPZCv90R5G7booDYEgE3kGbi8pN0db3wNLWGYnsA/edit#gid=0" target="_blank" class="btn-adm">
+      <i class="fa fa-table"></i> ABRIR PLANILHA PARA EDITAR
+    </a>
+
+    <button onclick="location.reload()" class="btn-adm btn-secundario"><i class="fa fa-rotate"></i> SAIR DO PAINEL</button>
+    <a href="agendamento.html" class="btn-adm btn-secundario"><i class="fa fa-arrow-left"></i> VOLTAR AO SITE</a>
+  </div>
+
+<script>
+// GERAR UNHAS NO FUNDO
+function createNails() {
+  const container = document.getElementById('nailsBg');
+  for(let i=0; i<6; i++) {
+    const nail = document.createElement('div');
+    nail.className = 'nail';
+    nail.style.left = Math.random() * 100 + '%';
+    nail.style.top = Math.random() * 100 + '%';
+    nail.style.animationDelay = Math.random() * 10 + 's';
+    container.appendChild(nail);
+  }
+}
+createNails();
+
+// LOGIN
+const SENHA_CORRETA = "72591324Beh@";
+function entrar(){
+  if(document.getElementById('senha').value === SENHA_CORRETA){
+    document.getElementById('tela-login').style.display = 'none';
+    document.getElementById('tela-painel').style.display = 'block';
+    document.getElementById('erro').style.display = 'none';
+  } else {
+    document.getElementById('erro').style.display = 'block';
+  }
+}
+</script>
+
+</body>
+</html>

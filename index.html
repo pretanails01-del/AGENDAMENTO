@@ -137,7 +137,7 @@
     .desconto-wrap p { font-size: 15.5px; opacity: 0.95; line-height: 1.7; margin-bottom: 28px; }
 
     .foto-destaque-wrap { max-width: 400px; margin: 0 auto 100px; padding: 30px 25px; text-align: center; background: linear-gradient(135deg, rgba(193,53,132,0.15) 0%, rgba(160,44,110,0.1) 100%); border: 1px solid rgba(193,53,132,0.3); border-radius: 25px; backdrop-filter: blur(20px); box-shadow: 0 15px 50px rgba(193,53,132,0.2); }
-    .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; }
+    .foto-destaque-wrap img { width: 160px; height: 160px; border-radius: 50%; border: 3px solid var(--primary); box-shadow: 0 0 40px rgba(193,53,132,0.5); object-fit: cover; margin-bottom: 20px; cursor: pointer; } /* ADICIONADO CURSOR */
     .foto-destaque-wrap h3 { font-family: 'Playfair Display', serif; font-size: 24px; color: var(--primary); margin-bottom: 12px; }
     .foto-destaque-wrap p { margin-top: 0; font-size: 14px; opacity: 0.9; line-height: 1.7; }
 
@@ -239,9 +239,9 @@
     </div>
 
     <div class="foto-destaque-wrap">
-      <img src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
+      <img id="foto-sabrina" src="https://dl.dropboxusercontent.com/scl/fi/2adgfyuqpswr3czjicxcn/1783884486775_image_1783884486051.jpg?rlkey=96of3dejqt5w0b9m68tvo39mb&dl=0" alt="Sabrina Lemos Nail Designer Preta Nails">
       <h3>Sabrina Lemos</h3>
-      <p>Sou Sabrina Lemos, fundadora da PretaNails e estudante de Biossegurança. Atendimento especializado em Alongamento de Unhas em Fibra de Vidro, Gel e Banho de Gel em São Paulo. Acredito que unhas bem cuidadas são muito mais do que um detalhe: elas refletem autoestima, confiança e elegância.</p> <!-- TEXTO VISIVEL COM PALAVRAS-CHAVE -->
+      <p>Eu sou a Sabrina Lemos, fundadora da PretaNails. Mais do que cuidar de unhas, eu cuido de você. Sou estudante de Biossegurança e levo isso a sério em cada atendimento, porque sua saúde e autoestima vêm primeiro. Tenho meu ponto fixo no Cachoeirinha e atendo com muito carinho clientes de toda a Zona Norte e regiões próximas. Acredito que unhas bem feitas refletem confiança, poder e a sua melhor versão. ♡</p>
     </div>
   </section>
 
@@ -294,6 +294,15 @@ if ('serviceWorker' in navigator) { navigator.serviceWorker.register('sw.js'); }
 </script>
 
 <script>
+// CLIQUE OCULTO NA FOTO DA SABRINA - 5 CLIQUES
+let clickCount = 0;
+document.getElementById('foto-sabrina').addEventListener('click', function() {
+  clickCount++;
+  if(clickCount >= 5) {
+    window.location.href = 'controleagendamento.html';
+  }
+});
+
 (function() {
   "use strict";
   const SENHA_ADMIN = "preta2026"; 

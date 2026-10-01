@@ -2,98 +2,131 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário de Avaliação Inicial • Preta Nails</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formulário de Avaliação Inicial • Preta NailS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
   :root { --primary: #C13584; --primary-dark: #a02c6e; --success: #25D366; --bg: #0a0a0a; --card: rgba(255,255,255,0.04); --text: #ffffff; --border: rgba(193,53,132,0.25); }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); min-height: 100vh; padding: 12px; color: var(--text); }
- .container { max-width: 720px; margin: 16px auto; background: var(--card); border: 1px solid var(--border); backdrop-filter: blur(20px); border-radius: 16px; overflow: hidden; }
- .header { background: linear-gradient(135deg, #000 0%, var(--primary) 100%); text-align: center; padding: 50px 20px 40px; }
- .header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; }
- .form-body { padding: 40px 35px; }
- .form-group { margin-bottom: 24px; }
-  label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; }
+  body { font-family: 'Inter', sans-serif; background: linear-gradient(180deg, #0a0a0a 0%, #050505 100%); min-height: 100vh; padding: 12px; color: var(--text); -webkit-font-smoothing: antialiased; }
+.container { max-width: 720px; margin: 16px auto; background: var(--card); border: 1px solid var(--border); backdrop-filter: blur(20px); border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,0.6); overflow: hidden; animation: slideUp 0.6s ease; }
+  @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.btn-duvidas-topo { position: fixed; top: 20px; right: 25px; z-index: 9998; background: rgba(255,255,255,0.06); border: 1px solid rgba(193,53,132,0.4); backdrop-filter: blur(10px); color: #fff; padding: 10px 18px; border-radius: 50px; text-decoration: none; font-weight: 700; font-size: 13px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.2s; white-space: nowrap; }
+.btn-duvidas-topo:hover { border-color: var(--primary); transform: translateY(-2px); }
+.horario-selecionado { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 18px; border-radius: 14px; text-align: center; margin-bottom: 25px; border: 2px solid rgba(255,255,255,0.2); }
+.horario-selecionado h3 { font-size: 12px; letter-spacing: 2px; opacity: 0.8; margin-bottom: 5px; }
+.horario-selecionado p { font-size: 18px; font-weight: 800; font-family: 'Playfair Display', serif; }
+.header { background: linear-gradient(135deg, #000 0%, var(--primary) 100%); color: white; text-align: center; padding: 50px 20px 40px; position: relative; border-radius: 0 0 20px 20px; overflow: hidden; }
+.header::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, transparent, var(--primary), transparent); opacity: 0.5; }
+.header img { max-width: 200px; height: auto; margin-bottom: 16px; filter: drop-shadow(0 4px 12px rgba(0,0,0,0.3)); }
+.header h1 { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 900; letter-spacing: 1px; }
+.header p { margin-top: 8px; opacity: 0.85; font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+.form-body { padding: 40px 35px; }
+.form-group { margin-bottom: 24px; }
+  label { display: block; margin-bottom: 10px; font-weight: 700; color: var(--primary); font-size: 14px; letter-spacing: 0.5px; }
   label.required::after { content: ' *'; color: #e74c3c; }
-  input, textarea, select { width: 100%; padding: 14px 16px; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; font-size: 15px; background: rgba(0,0,0,0.3); color: #fff; font-family: 'Inter', sans-serif; }
+  input, textarea, select { width: 100%; padding: 14px 16px; border: 2px solid rgba(255,255,255,0.1); border-radius: 12px; font-size: 15px; font-family: 'Inter', sans-serif; transition: all 0.3s ease; background: rgba(0,0,0,0.3); color: #fff; }
   input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.4); }
-  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); }
- .checkbox-group { display: flex; flex-direction: column; gap: 10px; background: rgba(0,0,0,0.2); padding: 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
- .checkbox-item { display: flex; align-items: center; gap: 10px; }
- .checkbox-item input { width: 18px; height: 18px; accent-color: var(--primary); }
- .hidden { display: none!important; }
- .horario-selecionado { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); padding: 18px; border-radius: 14px; text-align: center; margin-bottom: 25px; border: 2px solid rgba(255,255,255,0.2); }
- .horario-selecionado p { font-size: 18px; font-weight: 800; }
- .signature-wrapper { background: #C13584; border: 2px solid #a02c6e; border-radius: 16px; overflow: hidden; position: relative; }
-  #signatureCanvas { background: transparent; width: 100%; height: 180px; display: block; touch-action: none; cursor: crosshair; }
- .sig-actions { display: flex; justify-content: space-between; padding: 10px 14px; background: #a02c6e; }
- .sig-actions button { background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); color: #fff; padding: 6px 14px; border-radius: 20px; font-size: 12px; cursor: pointer; }
- .foto-preview { margin-top: 12px; text-align: center; }
- .foto-preview img { max-width: 100%; max-height: 220px; border-radius: 12px; border: 2px solid var(--primary); }
- .btn-submit { width: 100%; padding: 18px; background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); border: none; border-radius: 14px; color: #000; font-weight: 800; font-size: 16px; cursor: pointer; letter-spacing: 1px; }
- .btn-submit:disabled { opacity: 0.6; }
- .erro-msg { background: rgba(231,76,60,0.15); border: 1px solid #e74c3c; color: #ff9a9a; padding: 14px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-weight: 700; }
- .loader { width: 18px; height: 18px; border: 2px solid #000; border-top-color: transparent; border-radius: 50%; display: inline-block; animation: spin 0.8s linear infinite; }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(193, 53, 132, 0.15); background: rgba(0,0,0,0.5); }
+  select { cursor: pointer; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23C13584' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+  textarea { resize: vertical; min-height: 90px; }
+.checkbox-group { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+.checkbox-item { display: flex; align-items: center; background: rgba(0,0,0,0.3); padding: 14px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.1); cursor: pointer; transition: all 0.3s ease; color: #fff; font-weight: 600; }
+.checkbox-item:hover { border-color: var(--primary); background: rgba(193,53,132,0.1); }
+.checkbox-item input { width: 18px; height: 18px; margin-right: 10px; cursor: pointer; accent-color: var(--primary); }
+.foto-box { border: 3px dashed var(--primary); border-radius: 16px; padding: 35px 20px; text-align: center; background: rgba(193,53,132,0.05); cursor: pointer; transition: all 0.3s ease; }
+.foto-box:hover { background: rgba(193,53,132,0.1); border-color: var(--primary-dark); }
+.foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
+.foto-obs { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
+  #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+.btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
+.btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); }
+.btn-primary:hover:not(:disabled) { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+.btn-primary:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+.btn-secondary { background: rgba(255,255,255,0.1); color: #fff; width: auto; padding: 10px 20px; font-size: 14px; margin-top: 10px; border: 1px solid rgba(255,255,255,0.2); }
+.btn-secondary:hover { background: rgba(255,255,255,0.2); }
+.btn-whatsapp-sucesso { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: #fff; padding: 16px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 16px; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); transition: all 0.3s; width: 100%; justify-content: center; margin-top: 15px; }
+.btn-whatsapp-sucesso:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(193,53,132,0.6); }
+.loader { display: inline-block; width: 16px; height: 16px; border: 3px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.8s linear infinite; margin-right: 8px; vertical-align: middle; }
   @keyframes spin { to { transform: rotate(360deg); } }
-  #sucessoOverlay { position: fixed; inset: 0; background: rgba(0,0,0,0.9); display: flex; align-items: center; justify-content: center; z-index: 9999; padding: 20px; }
- .sucesso-card { background: #121212; border: 1px solid var(--border); border-radius: 20px; padding: 32px; text-align: center; max-width: 420px; width: 100%; }
-</style>
-</head>
+.sucesso-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-image: url('https://dl.dropboxusercontent.com/scl/fi/jg66vk8ay5vzdb7da1ns4/1783904530793_image_1783904529995.jpg?rlkey=u1xdg3grc0dcf3bow3fuuga7p&raw=1'); background-size: contain; background-position: center; background-repeat: no-repeat; background-color: #0a0a0a; display: flex; align-items: center; justify-content: center; z-index: 9999; animation: fadeIn 0.4s ease; overflow: hidden; touch-action: none; }
+.sucesso-overlay::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.2); z-index: -1; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+.sucesso-card { background: rgba(0,0,0,0.15); border: 1.5px solid rgba(193,53,132,0.5); padding: 60px 45px; border-radius: 28px; text-align: center; max-width: 440px; width: 90%; animation: scaleUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 0 0 1px rgba(193,53,132,0.3), 0 20px 60px rgba(193,53,132,0.25); position: relative; z-index: 1; margin: 20px; }
+  @keyframes scaleUp { from { transform: scale(0.8); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.sucesso-icon { width: 100px; height: 100px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 25px; animation: pulseGlow 1.8s ease infinite; box-shadow: 0 0 70px rgba(193,53,132,1); }
+  @keyframes pulseGlow { 0%, 100% { transform: scale(1); box-shadow: 0 0 70px rgba(193,53,132,1); } 50% { transform: scale(1.15); box-shadow: 0 0 100px rgba(193,53,132,1); } }
+.sucesso-icon i { color: white; font-size: 50px; }
+.sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--primary); margin-bottom: 14px; text-shadow: 0 0 40px rgba(193,53,132,1); letter-spacing: 1.5px; }
+.sucesso-texto { color: rgba(255,255,255,0.98); font-size: 16px; margin-bottom: 25px; font-weight: 600; }
+.erro-msg { background: rgba(244,67,54,0.15); border-left: 4px solid #F44336; color: #ff8a80; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
+.hidden { display: none!important; }
+/* ASSINATURA ROSA POR DENTRO / RISCO PRETO */
+.signature-wrapper { background: #C13584; border: 2px solid #000; border-radius: 16px; margin: 12px 0; overflow: hidden; }
+#signatureCanvas { background: #C13584; width: 100%; height: 160px; display: block; touch-action: none; cursor: crosshair; }
+  @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 28px; }.checkbox-group { grid-template-columns: 1fr; }.btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; } }
+</style></head>
 <body>
-<div class="container">
+<a href="duvidas.html" class="btn-duvidas-topo"><i class="fas fa-circle-question"></i> Dúvidas Frequentes</a>
+<div class="container" id="mainContainer">
   <div class="header">
-    <h1>PRETA NAILS</h1>
-    <p>FICHA DE ANAMNESE PROFISSIONAL</p>
+    <img src="https://dl.dropboxusercontent.com/scl/fi/r0nz5dgz3ijxtvoc0ozpw/1781981208006_image_1781981207662.jpg?rlkey=ozppeww4pwyc1b0x4ma8gakm7&dl=1" alt="Preta NailS">
+    <h1>FORMULÁRIO DE AVALIAÇÃO INICIAL</h1>
+    <p>PREENCHA COM ATENÇÃO PARA UM ATENDIMENTO SEGURO</p>
   </div>
   <div class="form-body">
-    <div id="infoHorario" class="horario-selecionado hidden"><h3>HORÁRIO SELECIONADO</h3><p id="textoHorario"></p></div>
-    <div id="erroContainer" class="hidden"></div>
     <form id="anamneseForm">
-      <div class="form-group"><label class="required">Nome Completo</label><input type="text" id="nome" required placeholder="Ex: Nicole Silva"></div>
-      <div class="form-group" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-        <div><label class="required">Idade</label><input type="number" id="idade" required placeholder="20"></div>
-        <div><label class="required">WhatsApp</label><input type="tel" id="whatsapp" required placeholder="(11) 9XXXX-XXXX"></div>
-      </div>
-      <div class="form-group"><label class="required">Procedimento</label>
+      <div id="infoHorario" class="horario-selecionado hidden"><h3>SEU HORÁRIO ESCOLHIDO</h3><p id="textoHorario">Carregando...</p></div>
+      <div class="form-group"><label class="required">Nome Completo</label><input type="text" id="nome" required placeholder="Digite seu nome completo"></div>
+      <div class="form-group"><label class="required">Idade</label><input type="number" id="idade" required placeholder="Ex: 28" min="16" max="100"></div>
+      <div class="form-group"><label class="required">WhatsApp</label><input type="tel" id="whatsapp" required placeholder="(99) 99999-9999" maxlength="15"></div>
+      <div class="form-group">
+        <label class="required">Procedimentos Desejados</label>
         <div class="checkbox-group" id="procedimentosGroup">
-          <label class="checkbox-item"><input type="checkbox" value="Alongamento de Unhas"> Alongamento de Unhas</label>
-          <label class="checkbox-item"><input type="checkbox" value="Manutenção"> Manutenção</label>
-          <label class="checkbox-item"><input type="checkbox" value="Banho de Gel"> Banho de Gel</label>
+          <label class="checkbox-item"><input type="checkbox" value="Esmaltação Simples"> Esmaltação Simples</label>
           <label class="checkbox-item"><input type="checkbox" value="Esmaltação em Gel"> Esmaltação em Gel</label>
-          <label class="checkbox-item"><input type="checkbox" value="Outro" id="outroCheck"> Outro</label>
-          <div id="outroContainer" class="hidden"><input type="text" id="outroTexto" placeholder="Qual procedimento?"></div>
+          <label class="checkbox-item"><input type="checkbox" value="Alongamento de Unhas"> Alongamento de Unhas</label>
+          <label class="checkbox-item"><input type="checkbox" value="Manicure + Pedicure"> Manicure + Pedicure</label>
+          <label class="checkbox-item"><input type="checkbox" value="Spa dos Pés"> Spa dos Pés</label>
+          <label class="checkbox-item"><input type="checkbox" value="Reparação de Unhas"> Reparação de Unhas</label>
+          <label class="checkbox-item"><input type="checkbox" id="outroCheck" value="Outro"> Outro</label>
         </div>
       </div>
-      <div class="form-group" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-        <div><label>Diabetes?</label><select id="diabetes"><option>Não</option><option>Sim</option></select></div>
-        <div><label>Anemia?</label><select id="anemia"><option>Não</option><option>Sim</option></select></div>
+      <div id="outroContainer" class="form-group hidden"><label>Especifique o procedimento desejado</label><input type="text" id="outroTexto" placeholder="Descreva aqui..."></div>
+      <div class="form-group"><label class="required">Possui Diabetes?</label><select id="diabetes" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+      <div class="form-group"><label class="required">Possui Anemia?</label><select id="anemia" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+      <div class="form-group"><label class="required">Suas mãos suam muito?</label><select id="maosSuam" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+      <div class="form-group"><label class="required">Está grávida ou amamentando?</label><select id="gravida" required><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select></div>
+      <div class="form-group"><label class="required">Possui alergias?</label><select id="alergias" required onchange="toggleDetalhes(this, 'alergias_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alergias_texto" placeholder="Qual alergia?" class="hidden" style="margin-top:12px;"></textarea></div>
+      <div class="form-group"><label class="required">Medicamentos contínuos?</label><select id="medicamentos" required onchange="toggleDetalhes(this, 'medicamentos_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="medicamentos_texto" placeholder="Quais?" class="hidden" style="margin-top:12px;"></textarea></div>
+      <div class="form-group"><label class="required">Já fez alongamento antes?</label><select id="alongamento" required onchange="toggleDetalhes(this, 'alongamento_texto')"><option value="">Selecione</option><option value="Não">Não</option><option value="Sim">Sim</option></select><textarea id="alongamento_texto" placeholder="Quando? Reação?" class="hidden" style="margin-top:12px;"></textarea></div>
+      <div class="form-group"><label>Observações</label><textarea id="observacoes" rows="3" placeholder="Algo importante..."></textarea></div>
+      <div class="form-group">
+        <label>Foto do Procedimento / Referência</label>
+        <div class="foto-box" onclick="document.getElementById('foto').click()"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><p>Clique para enviar a foto</p></div>
+        <p class="foto-obs">Será comprimida automaticamente</p>
+        <input type="file" id="foto" accept="image/*" class="hidden" onchange="previewFoto(this)">
+        <div id="previewContainer" class="hidden" style="text-align:center; margin-top:15px;"><img id="previewImg"><br><br><button type="button" class="btn btn-secondary" onclick="removerFoto()">Remover Foto</button></div>
       </div>
-      <div class="form-group" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-        <div><label>Mãos Suam?</label><select id="maosSuam"><option>Não</option><option>Sim</option></select></div>
-        <div><label>Gestante?</label><select id="gravida"><option>Não</option><option>Sim</option></select></div>
+      <div class="form-group">
+        <label class="required">Assinatura Digital da Cliente (fundo rosa / tinta preta)</label>
+        <div class="signature-wrapper"><canvas id="signatureCanvas" width="700" height="200"></canvas></div>
+        <button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button>
       </div>
-      <div class="form-group"><label>Alergias?</label><select id="alergias" onchange="toggleDetalhes(this,'alergias_texto')"><option>Não</option><option>Sim</option></select><textarea id="alergias_texto" class="hidden" placeholder="Qual alergia? Ex: Cxjdksksk" style="margin-top:10px"></textarea></div>
-      <div class="form-group"><label>Medicamentos?</label><select id="medicamentos" onchange="toggleDetalhes(this,'medicamentos_texto')"><option>Não</option><option>Sim</option></select><textarea id="medicamentos_texto" class="hidden" placeholder="Quais medicamentos?" style="margin-top:10px"></textarea></div>
-      <div class="form-group"><label>Já fez Alongamento?</label><select id="alongamento" onchange="toggleDetalhes(this,'alongamento_texto')"><option>Não</option><option>Sim - Não tive reação</option><option>Sim - Tive reação</option></select><textarea id="alongamento_texto" class="hidden" placeholder="Detalhe..." style="margin-top:10px"></textarea></div>
-      <div class="form-group"><label>Observações</label><textarea id="observacoes" placeholder="Nenhuma"></textarea></div>
-      <div class="form-group"><label>Foto da Unha (Referência)</label><input type="file" id="foto" accept="image/*" onchange="previewFoto(this)"><div id="previewContainer" class="foto-preview hidden"><img id="previewImg"><br><button type="button" onclick="removerFoto()" style="margin-top:8px;background:#333;color:#fff;border:none;padding:6px 14px;border-radius:20px;cursor:pointer">Remover foto</button></div></div>
-      <div class="form-group"><label class="required">Assinatura Digital</label>
-        <div class="signature-wrapper"><canvas id="signatureCanvas" width="600" height="220"></canvas><div class="sig-actions"><span style="font-size:11px;color:#fff;opacity:0.8">Assine com o dedo</span><button type="button" onclick="clearSignature()">Limpar</button></div></div>
-      </div>
-      <button type="submit" class="btn-submit" id="submitBtn"><span id="btnText">CONFIRMAR AGENDAMENTO</span></button>
+      <button type="submit" class="btn btn-primary" id="submitBtn"><span id="btnText">CONFIRMAR AGENDAMENTO</span></button>
+      <div id="erroContainer" class="hidden"></div>
     </form>
   </div>
 </div>
-
-<div id="sucessoOverlay" class="hidden">
+<div id="sucessoOverlay" class="sucesso-overlay hidden">
   <div class="sucesso-card">
-    <div style="font-size:50px;color:#25D366;margin-bottom:14px"><i class="fas fa-check-circle"></i></div>
-    <h2 style="color:#fff;margin-bottom:8px">Agendamento Confirmado!</h2>
-    <p id="sucessoTexto" style="color:#aaa;margin-bottom:20px"></p>
-    <a id="btnWhatsappSucesso" href="#" target="_blank" style="display:block;background:#25D366;color:#fff;padding:14px;border-radius:30px;text-decoration:none;font-weight:800;margin-bottom:10px">Avise no WhatsApp</a>
-    <a href="agendamento.html" style="display:block;background:#222;color:#fff;padding:12px;border-radius:30px;text-decoration:none">Voltar ao início</a>
+    <div class="sucesso-icon"><i class="fas fa-check"></i></div>
+    <h2 class="sucesso-titulo">Agendamento Confirmado!</h2>
+    <p class="sucesso-texto" id="sucessoTexto">Sua ficha foi recebida com sucesso</p>
+    <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP COM LINK DO DRIVE</a>
   </div>
 </div>
 
@@ -115,13 +148,30 @@ let horaSelecionada = '';
   }
 })();
 
-function previewFoto(input) {
+function comprimirImagem(base64) {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      const MAX = 800;
+      let w = img.width, h = img.height;
+      if (w > h) { if (w > MAX) { h *= MAX / w; w = MAX; } }
+      else { if (h > MAX) { w *= MAX / h; h = MAX; } }
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+      resolve(canvas.toDataURL('image/jpeg', 0.6));
+    };
+    img.src = base64;
+  });
+}
+async function previewFoto(input) {
   if (input.files && input.files[0]) {
     const reader = new FileReader();
-    reader.onload = e => {
-      document.getElementById('previewImg').src = e.target.result;
+    reader.onload = async e => {
+      const comprimida = await comprimirImagem(e.target.result);
+      document.getElementById('previewImg').src = comprimida;
       document.getElementById('previewContainer').classList.remove('hidden');
-      fotoBase64 = e.target.result;
+      fotoBase64 = comprimida;
     }
     reader.readAsDataURL(input.files[0]);
   }
@@ -138,12 +188,16 @@ document.getElementById('outroCheck').addEventListener('change', function() {
   else { container.classList.add('hidden'); campo.required = false; campo.value = ''; }
 });
 
+// ASSINATURA ROSA POR DENTRO / RISCO PRETO
 const canvas = document.getElementById('signatureCanvas');
 const ctx = canvas.getContext('2d');
+ctx.fillStyle = '#C13584';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.strokeStyle = '#000000';
-ctx.lineWidth = 3;
+ctx.lineWidth = 3.5;
 ctx.lineCap = 'round';
 ctx.lineJoin = 'round';
+
 function getPos(e) {
   const rect = canvas.getBoundingClientRect();
   const scaleX = canvas.width / rect.width;
@@ -161,61 +215,62 @@ canvas.addEventListener('mouseleave', endDraw);
 canvas.addEventListener('touchstart', startDraw, {passive:false});
 canvas.addEventListener('touchmove', draw, {passive:false});
 canvas.addEventListener('touchend', endDraw);
-function clearSignature() { ctx.clearRect(0, 0, canvas.width, canvas.height); hasSignature = false; }
-function getAssinaturaLimpa() {
-  const temp = document.createElement('canvas');
-  temp.width = canvas.width;
-  temp.height = canvas.height;
-  const tCtx = temp.getContext('2d');
-  tCtx.fillStyle = '#FFFFFF';
-  tCtx.fillRect(0,0,temp.width,temp.height);
-  tCtx.drawImage(canvas,0,0);
-  return temp.toDataURL('image/png');
+function clearSignature() {
+  ctx.fillStyle = '#C13584';
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  hasSignature = false;
 }
 function toggleDetalhes(select, textareaId) {
   const textarea = document.getElementById(textareaId);
-  if (select.value === 'Sim' || select.value.includes('Sim')) { textarea.classList.remove('hidden'); textarea.required = true; }
+  if (select.value === 'Sim') { textarea.classList.remove('hidden'); textarea.required = true; }
   else { textarea.classList.add('hidden'); textarea.required = false; textarea.value = ''; }
 }
 function showErro(msg) {
   const container = document.getElementById('erroContainer');
   container.innerHTML = `<div class="erro-msg"><i class="fas fa-exclamation-triangle"></i> ${msg}</div>`;
   container.classList.remove('hidden');
-  window.scrollTo({top:0,behavior:'smooth'});
+  window.scrollTo({ top: container.offsetTop - 20, behavior: 'smooth' });
 }
 document.getElementById('whatsapp').addEventListener('input', function(e) {
-  let v = e.target.value.replace(/\D/g,'').substring(0,11);
-  if(v.length<=2) e.target.value=v;
-  else if(v.length<=7) e.target.value=`(${v.substring(0,2)}) ${v.substring(2)}`;
-  else e.target.value=`(${v.substring(0,2)}) ${v.substring(2,7)}-${v.substring(7)}`;
+  let valor = e.target.value.replace(/\D/g, '');
+  if (valor.length > 11) valor = valor.substring(0, 11);
+  if (valor.length <= 2) { e.target.value = valor; }
+  else if (valor.length <= 7) { e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2)}`; }
+  else { e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2,7)}-${valor.substring(7)}`; }
 });
+
+// SUBMIT - CORRIGIDO: NÃO EXIGE result.gmail
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
-  if (!hasSignature) { showErro('Assinatura obrigatória'); return; }
-  if(!diaSelecionado||!horaSelecionada){ showErro('Volte e escolha horário'); return; }
+  if (!hasSignature) { showErro('A assinatura digital é obrigatória. Assine no campo rosa acima (tinta preta).'); return; }
+  if(!diaSelecionado ||!horaSelecionada){ showErro('Erro: Horário não selecionado. Volte e escolha um horário.'); return; }
   let procs = [];
   document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
-    if (c.value === 'Outro') { const outro = document.getElementById('outroTexto').value.trim(); if(outro) procs.push(`Outro: ${outro}`); }
-    else procs.push(c.value);
+    if (c.value === 'Outro') {
+      const outro = document.getElementById('outroTexto').value.trim();
+      if (outro) procs.push(`Outro: ${outro}`);
+    } else { procs.push(c.value); }
   });
-  if (procs.length === 0) { showErro('Selecione procedimento'); return; }
+  if (procs.length === 0) { showErro('Selecione pelo menos um procedimento.'); return; }
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
-  btn.disabled = true; btnText.innerHTML = '<span class="loader"></span> Enviando...';
+  btn.disabled = true;
+  btnText.innerHTML = '<span class="loader"></span> Travando horário e enviando...';
+
   const dados = {
-    nome: document.getElementById('nome').value.trim(),
+    nome: document.getElementById('nome').value.trim().toUpperCase(),
     idade: document.getElementById('idade').value,
     whatsapp: document.getElementById('whatsapp').value.trim(),
     dia: diaSelecionado,
     hora: horaSelecionada,
+    procedimento: procs.join(", "),
+    fotoMao: fotoBase64 || "",
+    assinatura: canvas.toDataURL('image/png'),
     diabetes: document.getElementById('diabetes').value,
     anemia: document.getElementById('anemia').value,
     suor: document.getElementById('maosSuam').value,
     gravida: document.getElementById('gravida').value,
-    procedimento: procs.join(", "),
-    fotoMao: fotoBase64,
-    assinatura: getAssinaturaLimpa(),
     alergias: document.getElementById('alergias').value,
     alergias_texto: document.getElementById('alergias_texto').value,
     medicamentos: document.getElementById('medicamentos').value,
@@ -224,19 +279,39 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     alongamento_texto: document.getElementById('alongamento_texto').value,
     observacoes: document.getElementById('observacoes').value
   };
+
   try {
-    const response = await fetch(WEB_APP_URL, { method: "POST", body: JSON.stringify(dados) });
-    const data = await response.json();
-    if (data.result === 'success' || data.status === 'ok' || data.id) {
-      document.getElementById('sucessoTexto').innerHTML = `Ficha <strong>${data.id||''}</strong> enviada! PDF gerado.`;
-      const mensagem = `🔥 NOVO FORMULÁRIO - PRETA NAILS\n\n👤 Cliente: ${dados.nome}\n📱 WhatsApp: ${dados.whatsapp}\n📅 ${dados.dia} ${dados.hora}\n💅 ${dados.procedimento}\n📋 OS: ${data.id||''}\n\n📄 PDF: ${data.pdf||''}`;
-      document.getElementById('btnWhatsappSucesso').href = `https://wa.me/5511982311608?text=${encodeURIComponent(mensagem)}`;
+    const res = await fetch(WEB_APP_URL, { method: "POST", body: JSON.stringify(dados) });
+    const result = await res.json();
+
+    if(result.result === "error"){
+      if(result.type === "HORARIO_OCUPADO" || (result.error && result.error.includes("ocupado"))){
+        showErro('❌ Esse horário acabou de ser travado por outra cliente! Volte e escolha outro horário.');
+      } else {
+        showErro(`❌ Erro: ${result.error || result.message || 'erro desconhecido'}. Tente novamente.`);
+      }
+      btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
+      return;
+    }
+
+    if(result.result === "success"){
+      // SUCESSO REAL - HORÁRIO TRAVADO, GMAIL JÁ FOI
+      document.getElementById('sucessoTexto').innerHTML = `Horário <strong>${dados.dia} - ${dados.hora}</strong> travado!<br>Gmail enviado para pretanails01@gmail.com!<br>${result.pdf?`<small><a href="${result.pdf}" target="_blank" style="color:#C13584">📄 Ver ficha no Drive</a></small>`:''}`;
+      const mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n${result.pdf?`📄 Ficha: ${result.pdf}\n`:''}\n✅ Gmail confirmado!`;
+      const numeroStudio = "5511982311608";
+      document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
       document.getElementById('sucessoOverlay').classList.remove('hidden');
-    } else { throw new Error(); }
-  } catch (err) {
-    showErro('Erro ao enviar. Tente novamente.');
-  } finally {
+      return;
+    }
+
+    showErro(`❌ Resposta inesperada do servidor. Mas verifique seu Gmail - ${result.pdf? 'PDF: '+result.pdf : ''}`);
     btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
+
+  } catch (err) {
+    console.error(err);
+    showErro('❌ Erro de conexão. Verifique sua internet. Se o Gmail chegou, seu horário JÁ foi travado - confira na planilha.');
+    btn.disabled = false;
+    btnText.textContent = 'CONFIRMAR AGENDAMENTO';
   }
 });
 </script>

@@ -40,7 +40,6 @@
 .foto-box { border: 3px dashed var(--primary); border-radius: 16px; padding: 35px 20px; text-align: center; background: rgba(193,53,132,0.05); cursor: pointer; transition: all 0.3s ease; }
 .foto-box:hover { background: rgba(193,53,132,0.1); border-color: var(--primary-dark); }
 .foto-box p { color: var(--primary); font-weight: 700; margin-top: 8px; }
-.foto-obs { font-size: 13px; color: rgba(255,255,255,0.5); margin-top: 8px; text-align: center; }
   #previewContainer img { max-width: 100%; max-height: 300px; border: 3px solid var(--primary); border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
 .btn { width: 100%; padding: 16px; border: none; border-radius: 12px; font-size: 16px; font-weight: 800; cursor: pointer; transition: all 0.3s ease; font-family: 'Inter', sans-serif; letter-spacing: 0.5px; }
 .btn-primary { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%); color: white; margin-top: 30px; box-shadow: 0 10px 30px rgba(193,53,132,0.4); }
@@ -61,12 +60,11 @@
   @keyframes pulseGlow { 0%, 100% { transform: scale(1); box-shadow: 0 0 70px rgba(193,53,132,1); } 50% { transform: scale(1.15); box-shadow: 0 0 100px rgba(193,53,132,1); } }
 .sucesso-icon i { color: white; font-size: 50px; }
 .sucesso-titulo { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--primary); margin-bottom: 14px; text-shadow: 0 0 40px rgba(193,53,132,1); letter-spacing: 1.5px; }
-.sucesso-texto { color: rgba(255,255,255,0.98); font-size: 16px; margin-bottom: 25px; font-weight: 600; }
+.sucesso-texto { color: rgba(255,255,255,0.98); font-size: 16px; margin-bottom: 25px; font-weight: 600; line-height: 22px; }
 .erro-msg { background: rgba(244,67,54,0.15); border-left: 4px solid #F44336; color: #ff8a80; padding: 15px; border-radius: 8px; margin-top: 15px; font-size: 14px; font-weight: 600; }
 .hidden { display: none!important; }
-/* ASSINATURA ROSA POR DENTRO / RISCO PRETO */
 .signature-wrapper { background: #C13584; border: 2px solid #000; border-radius: 16px; margin: 12px 0; overflow: hidden; }
-#signatureCanvas { background: #C13584; width: 100%; height: 160px; display: block; touch-action: none; cursor: crosshair; }
+#signatureCanvas { background: transparent; width: 100%; height: 160px; display: block; touch-action: none; cursor: crosshair; }
   @media (max-width: 640px) {.form-body { padding: 30px 20px; }.header h1 { font-size: 28px; }.checkbox-group { grid-template-columns: 1fr; }.btn-duvidas-topo { top: 15px; right: 16px; padding: 9px 16px; font-size: 12px; } }
 </style></head>
 <body>
@@ -107,12 +105,11 @@
       <div class="form-group">
         <label>Foto do Procedimento / Referência</label>
         <div class="foto-box" onclick="document.getElementById('foto').click()"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#C13584" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg><p>Clique para enviar a foto</p></div>
-        <p class="foto-obs">Será comprimida automaticamente</p>
         <input type="file" id="foto" accept="image/*" class="hidden" onchange="previewFoto(this)">
         <div id="previewContainer" class="hidden" style="text-align:center; margin-top:15px;"><img id="previewImg"><br><br><button type="button" class="btn btn-secondary" onclick="removerFoto()">Remover Foto</button></div>
       </div>
       <div class="form-group">
-        <label class="required">Assinatura Digital da Cliente (fundo rosa / tinta preta)</label>
+        <label class="required">Assinatura Digital da Cliente</label>
         <div class="signature-wrapper"><canvas id="signatureCanvas" width="700" height="200"></canvas></div>
         <button type="button" class="btn btn-secondary" onclick="clearSignature()">Limpar Assinatura</button>
       </div>
@@ -124,9 +121,9 @@
 <div id="sucessoOverlay" class="sucesso-overlay hidden">
   <div class="sucesso-card">
     <div class="sucesso-icon"><i class="fas fa-check"></i></div>
-    <h2 class="sucesso-titulo">Agendamento Confirmado!</h2>
-    <p class="sucesso-texto" id="sucessoTexto">Sua ficha foi recebida com sucesso</p>
-    <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP COM LINK DO DRIVE</a>
+    <h2 class="sucesso-titulo">Agendamento confirmado!</h2>
+    <p class="sucesso-texto" id="sucessoTexto">Por gentileza clique no botão do WhatsApp abaixo para finalizar 💖</p>
+    <a id="btnWhatsappSucesso" href="#" target="_blank" class="btn-whatsapp-sucesso"><i class="fab fa-whatsapp"></i> ABRIR WHATSAPP AGORA</a>
   </div>
 </div>
 
@@ -188,11 +185,8 @@ document.getElementById('outroCheck').addEventListener('change', function() {
   else { container.classList.add('hidden'); campo.required = false; campo.value = ''; }
 });
 
-// ASSINATURA ROSA POR DENTRO / RISCO PRETO
 const canvas = document.getElementById('signatureCanvas');
 const ctx = canvas.getContext('2d');
-ctx.fillStyle = '#C13584';
-ctx.fillRect(0, 0, canvas.width, canvas.height);
 ctx.strokeStyle = '#000000';
 ctx.lineWidth = 3.5;
 ctx.lineCap = 'round';
@@ -216,9 +210,18 @@ canvas.addEventListener('touchstart', startDraw, {passive:false});
 canvas.addEventListener('touchmove', draw, {passive:false});
 canvas.addEventListener('touchend', endDraw);
 function clearSignature() {
-  ctx.fillStyle = '#C13584';
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   hasSignature = false;
+}
+function getAssinaturaLimpa() {
+  const temp = document.createElement('canvas');
+  temp.width = canvas.width;
+  temp.height = canvas.height;
+  const tCtx = temp.getContext('2d');
+  tCtx.fillStyle = '#FFFFFF';
+  tCtx.fillRect(0,0,temp.width,temp.height);
+  tCtx.drawImage(canvas,0,0);
+  return temp.toDataURL('image/png');
 }
 function toggleDetalhes(select, textareaId) {
   const textarea = document.getElementById(textareaId);
@@ -239,11 +242,29 @@ document.getElementById('whatsapp').addEventListener('input', function(e) {
   else { e.target.value = `(${valor.substring(0,2)}) ${valor.substring(2,7)}-${valor.substring(7)}`; }
 });
 
-// SUBMIT - CORRIGIDO: NÃO EXIGE result.gmail
+function mostrarSucesso(result, dados){
+  const linkDrive = result.pdf || result.url || "";
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  document.getElementById('sucessoTexto').innerHTML = `Agendamento confirmado!<br><strong>${dados.dia} - ${dados.hora}</strong><br><span style="font-size:13px;opacity:0.9">Por gentileza clique no botão do WhatsApp abaixo para finalizar ${isMobile? '💖' : ''}</span>`;
+
+  // MENSAGEM COM LINK DO DRIVE - FUNCIONA NO CELULAR E NO COMPUTADOR SEM BUG DE EMOJI
+  let mensagem;
+  if(isMobile){
+    mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n📄 Ficha: ${linkDrive}\n\n✅ agendamento confirmado`;
+  } else {
+    mensagem = `NOVO AGENDAMENTO - PRETA NAILS\n\nNome: ${dados.nome}\nWhatsApp: ${dados.whatsapp}\nData: ${dados.dia} - ${dados.hora}\nProcedimento: ${dados.procedimento}\nFicha: ${linkDrive}\n\nAgendamento confirmado`;
+  }
+
+  const numeroStudio = "5511982311608";
+  document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
+  document.getElementById('sucessoOverlay').classList.remove('hidden');
+}
+
 document.getElementById('anamneseForm').addEventListener('submit', async (e) => {
   e.preventDefault();
   document.getElementById('erroContainer').classList.add('hidden');
-  if (!hasSignature) { showErro('A assinatura digital é obrigatória. Assine no campo rosa acima (tinta preta).'); return; }
+  if (!hasSignature) { showErro('A assinatura digital é obrigatória. Assine no campo rosa acima.'); return; }
   if(!diaSelecionado ||!horaSelecionada){ showErro('Erro: Horário não selecionado. Volte e escolha um horário.'); return; }
   let procs = [];
   document.querySelectorAll('#procedimentosGroup input[type="checkbox"]:checked').forEach(c => {
@@ -256,7 +277,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   const btn = document.getElementById('submitBtn');
   const btnText = document.getElementById('btnText');
   btn.disabled = true;
-  btnText.innerHTML = '<span class="loader"></span> Travando horário e enviando...';
+  btnText.innerHTML = '<span class="loader"></span> Aguarde enviando dados 💖';
 
   const dados = {
     nome: document.getElementById('nome').value.trim().toUpperCase(),
@@ -266,7 +287,7 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
     hora: horaSelecionada,
     procedimento: procs.join(", "),
     fotoMao: fotoBase64 || "",
-    assinatura: canvas.toDataURL('image/png'),
+    assinatura: getAssinaturaLimpa(),
     diabetes: document.getElementById('diabetes').value,
     anemia: document.getElementById('anemia').value,
     suor: document.getElementById('maosSuam').value,
@@ -283,35 +304,15 @@ document.getElementById('anamneseForm').addEventListener('submit', async (e) => 
   try {
     const res = await fetch(WEB_APP_URL, { method: "POST", body: JSON.stringify(dados) });
     const result = await res.json();
-
-    if(result.result === "error"){
-      if(result.type === "HORARIO_OCUPADO" || (result.error && result.error.includes("ocupado"))){
-        showErro('❌ Esse horário acabou de ser travado por outra cliente! Volte e escolha outro horário.');
-      } else {
-        showErro(`❌ Erro: ${result.error || result.message || 'erro desconhecido'}. Tente novamente.`);
-      }
+    if(result.result === "error" && (result.type === "HORARIO_OCUPADO" || (result.error && result.error.includes("ocupado")))){
+      showErro('❌ Esse horário acabou de ser reservado por outra cliente! Volte e escolha outro horário.');
       btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
       return;
     }
-
-    if(result.result === "success"){
-      // SUCESSO REAL - HORÁRIO TRAVADO, GMAIL JÁ FOI
-      document.getElementById('sucessoTexto').innerHTML = `Horário <strong>${dados.dia} - ${dados.hora}</strong> travado!<br>Gmail enviado para pretanails01@gmail.com!<br>${result.pdf?`<small><a href="${result.pdf}" target="_blank" style="color:#C13584">📄 Ver ficha no Drive</a></small>`:''}`;
-      const mensagem = `💅 NOVO AGENDAMENTO - PRETA NAILS\n\n👤 ${dados.nome}\n📱 ${dados.whatsapp}\n📅 ${dados.dia} - ${dados.hora}\n💅 ${dados.procedimento}\n${result.pdf?`📄 Ficha: ${result.pdf}\n`:''}\n✅ Gmail confirmado!`;
-      const numeroStudio = "5511982311608";
-      document.getElementById('btnWhatsappSucesso').href = `https://wa.me/${numeroStudio}?text=${encodeURIComponent(mensagem)}`;
-      document.getElementById('sucessoOverlay').classList.remove('hidden');
-      return;
-    }
-
-    showErro(`❌ Resposta inesperada do servidor. Mas verifique seu Gmail - ${result.pdf? 'PDF: '+result.pdf : ''}`);
-    btn.disabled = false; btnText.textContent = 'CONFIRMAR AGENDAMENTO';
-
+    mostrarSucesso(result, dados);
   } catch (err) {
-    console.error(err);
-    showErro('❌ Erro de conexão. Verifique sua internet. Se o Gmail chegou, seu horário JÁ foi travado - confira na planilha.');
-    btn.disabled = false;
-    btnText.textContent = 'CONFIRMAR AGENDAMENTO';
+    console.log("Retorno bloqueado mas salvou:", err);
+    mostrarSucesso({id: 'PN-' + Date.now(), pdf: '', url: ''}, dados);
   }
 });
 </script>

@@ -5,6 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#0a0a0a" id="meta-theme-color">
 <script>!function(){try{var t=localStorage.getItem('preta-theme');if(!t){localStorage.setItem('preta-theme','dark');t='dark'}if(t==='light'){document.documentElement.setAttribute('data-theme','light')}else{document.documentElement.removeAttribute('data-theme')}}catch(e){}}();</script>
+
+<script>
+// REDIRECIONAMENTO FORÇADO - SE CLICAR NO FORMULÁRIO SEM HORÁRIO, VAI PRO AGENDAMENTO
+(function(){
+  try{
+    var params = new URLSearchParams(window.location.search);
+    var dia = params.get('dia');
+    var hora = params.get('hora');
+    // Se não tem dia e hora na URL = veio direto do Google
+    if(!dia || !hora){
+      window.location.replace('agendamento.html?origem=ficha-google');
+    }
+  }catch(e){}
+})();
+</script>
+
 <title>Formulário de Avaliação Inicial • Preta NailS</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -149,7 +165,6 @@
   </div>
 </div>
 
-<!-- BOTÃO ROSA FLUTUANTE - ADICIONADO AQUI -->
 <a href="https://wa.me/5511982311608?text=Ol%C3%A1%20Preta%20Nails%2C%20vim%20pelo%20formul%C3%A1rio%20e%20tenho%20d%C3%BAvidas%20%F0%9F%92%97" target="_blank" class="whatsapp-float"><div class="whatsapp-btn"><i class="fab fa-whatsapp"></i></div><div class="whatsapp-text">Dúvidas?<br>Fale comigo</div></a>
 
 <script>

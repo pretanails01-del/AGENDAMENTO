@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- 7 BASE QUE EXISTEM -->
   <url><loc>https://pretanail.com.br/</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://pretanail.com.br/primeiro-atendimento.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://pretanail.com.br/modelos.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://pretanail.com.br/manutencao.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pretanail.com.br/agendamento.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pretanail.com.br/duvidas.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pretanail.com.br/duvidas.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://pretanail.com.br/fichadeassinatura.html</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 
-  <!-- 7 ORIGINAIS DUVIDAS -->
-  <url><loc>https://pretanail.com.br/higienizacao-esterilizacao.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://pretanail.com.br/gestante-pode-fazer-alongamento.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://pretanail.com.br/site-seguro-lgpd-confianca.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
-  <url><loc>https://pretanail.com.br/avaliacao-ficha-anamnese.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://pretanail.com.br/alergia-alongamento-sinais-prevencao.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://pretanail.com.br/cuidados-apos-alongamento-durabilidade.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <!-- 7 DÚVIDAS QUE EXISTEM - IGUAL SEU DUVIDAS.HTML -->
+  <url><loc>https://pretanail.com.br/higienizacao-esterilizacao-jardim-peri.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pretanail.com.br/gestante-pode-fazer-alongamento-horto-florestal.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pretanail.com.br/site-seguro-lgpd-preta-nails.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pretanail.com.br/formulario-avaliacao-por-que-preencher.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://pretanail.com.br/alergia-alongamento-sinais-prevencao.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://pretanail.com.br/cuidados-apos-alongamento-durabilidade.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://pretanail.com.br/dica-semanal-oleo-cuticula-segredo.html</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
-
-  <!-- 7 NOVAS SEO FORTE UNHAS FRACAS + MOLD F1 -->
-  <url><loc>https://pretanail.com.br/unhas-fracas-o-que-fazer-jardim-peri.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://pretanail.com.br/alongamento-mold-f1-jardim-peri.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://pretanail.com.br/fibra-de-vidro-jardim-peri.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://pretanail.com.br/banho-de-gel-jardim-peri.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pretanail.com.br/unhas-roidas-o-que-fazer-jardim-peri.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pretanail.com.br/manicure-jardim-peri-horto.html</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://pretanail.com.br/nail-designer-jardim-peri-cep-02632-090.html</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
 </urlset>
